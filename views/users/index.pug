@@ -1,0 +1,21 @@
+extends ../layouts/common
+block content
+  h1 User
+  a.btn.btn-primary.btn-sm.mb-1(href="/users/create") New
+  form(action="/users/search", method="GET")
+    .form-group
+      label(for='name') Name
+      input#name.form-control(type='text', aria-describedby='emailHelp', placeholder='Enter name',name="q")
+    button.btn.btn-success(type='submit') Submit
+  table.table
+    tr
+      th Name
+      th Phone
+      th Action
+    each user in users 
+      tr
+        td= user.name
+        td= user.phone
+        td
+          a(href="/users/" + user.id) View
+   
