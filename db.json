@@ -32,13 +32,35 @@
     },
     {
       "name": "thuan",
-      "phone": "12321412",
-      "id": "D4848KDt"
+      "phone": "1234",
+      "id": "D4848KDt",
+      "email": "voxuanthuan280194@gmail.com",
+      "password": "827ccb0eea8a706c4c34a16891f84e7b"
     },
     {
       "name": "xxx",
       "phone": "333",
       "id": "wLRAlEuW"
+    },
+    {
+      "name": "thuan",
+      "phone": "12344124",
+      "id": "jtwy0nMz"
+    },
+    {
+      "name": "vo xuan thuan",
+      "phone": "123456",
+      "id": "IpRTOeyf"
+    },
+    {
+      "name": "voxuanthuan280194@gmail.com",
+      "phone": "034421231",
+      "id": "IKLq8StH"
+    },
+    {
+      "name": "An Duong Vuong",
+      "phone": "0374134032",
+      "id": "M2gCxOF3"
     }
   ]
 }

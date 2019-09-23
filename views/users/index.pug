@@ -1,12 +1,12 @@
 extends ../layouts/common
 block content
-  h1 User
-  a.btn.btn-primary.btn-sm.mb-1(href="/users/create") New
-  form(action="/users/search", method="GET")
-    .form-group
-      label(for='name') Name
-      input#name.form-control(type='text', aria-describedby='emailHelp', placeholder='Enter name',name="q")
-    button.btn.btn-success(type='submit') Submit
+  .d-flex.align-items-center
+    h1(height="50%") User
+    a.btn.btn-primary.btn-sm.ml-1(href="/users/create") New
+  form.mr-2.mb-4(action="/users/search", method="GET")
+    .form-group.d-flex.justify-content-end.row
+      input#name.form-control.col-3(type='text', aria-describedby='emailHelp', placeholder='Enter name',name="q")
+      button.btn.btn-success(type='submit') Submit
   table.table
     tr
       th Name
