@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const app = express();
 var bodyParser = require('body-parser')
@@ -11,7 +12,7 @@ const authMiddleware = require('./middlewares/auth.middleware');
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'));
-app.use(cookieParser())
+app.use(cookieParser(process.env.SESSION_SECRET));
 
 app.set('view engine', 'pug');
 
