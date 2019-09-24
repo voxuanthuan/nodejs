@@ -1,0 +1,11 @@
+.card-columns {
+  @include media-breakpoint-down(lg) {
+    column-count: 4
+  }
+  @include media-breakpoint-down(sm) {
+    column-count: 2
+  }
+}
+body {
+  background-color: red;
+}

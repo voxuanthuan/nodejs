@@ -1,0 +1,29 @@
+extends ../layouts/common
+block content
+  h1  Product
+  form.mr-2.mb-5(action="/products", method="GET")
+    .form-group.d-flex.justify-content-end.row
+      input#name.form-control.col-3(type='text', aria-describedby='emailHelp', placeholder='Enter name',name="search")
+      button.btn.btn-success(type='submit') Search
+  .card-columns.mb-4.row.justify-content-around
+    each product in products
+      .card(style='width: 16rem;')
+        img.card-img-top(src=product.image, alt='...')
+        .card-body
+          h5.card-title= product.name
+          p.card-text= product.description
+          a.btn.btn-primary(href='#') Get Detail
+  nav(aria-label='Page navigation example')
+  -var tag = page;
+  ul.pagination.justify-content-end
+    li.page-item
+      a.page-link(href='http://localhost:3000/products?page=' + --tag) Previous
+    if page
+      li.page-item
+        a.page-link(href='http://localhost:3000/products?page=' + --tag)= page - 1
+    li.page-item.active
+      a.page-link(href='http://localhost:3000/products?page='+ page)= page 
+    li.page-item
+      a.page-link(href='http://localhost:3000/products?page='+ ++page)= page
+    li.page-item
+      a.page-link(href='http://localhost:3000/products?page='+ ++page) Next

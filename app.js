@@ -6,6 +6,7 @@ const shortid = require('shortid')
 var cookieParser = require('cookie-parser')
 var userRoute = require('./routers/user.route');
 const authRoute = require('./routers/auth.route');
+const productRoute = require('./routers/product.route');
 var db = require('./db');
 const authMiddleware = require('./middlewares/auth.middleware');
 
@@ -28,7 +29,7 @@ app.get('/styles/custom', (req, res) => {
 
 app.use('/users', authMiddleware.requireAuth, userRoute);
 app.use('/auth', authRoute);
-
+app.use('/products', productRoute);
 
 app.listen(3000, () => {
   console.log(`App listening on port 3000`);
