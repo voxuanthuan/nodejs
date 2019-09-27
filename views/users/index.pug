@@ -9,13 +9,17 @@ block content
       button.btn.btn-success(type='submit') Submit
   table.table
     tr
+      th Avatar
       th Name
       th Phone
       th Action
     each user in users 
       tr
+        td
+          img(src='http://localhost:3000/' + user.avatar, width=32)
         td= user.name
         td= user.phone
         td
-          a(href="/users/" + user.id) View
+            a(href="/users/" + user.id)
+              .btn.btn-light View
    

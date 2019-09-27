@@ -4,11 +4,14 @@ block content
   if errors
     each error in errors
       .alert.alert-danger= error
-  form(action="/users/create", method="POST")
+  form(action="/users/create", method="POST", enctype="multipart/form-data")
     .form-group
-    label(for="name") Name
-    input(id="name",type="text", name="name", class="form-control",value= values ? values.name : "")
+      label(for="name") Name
+      input(id="name",type="text", name="name", class="form-control",value= values ? values.name : "")
     .form-group
-    label(for="phone") Phone
-    input(id="phone",type="text", name="phone", class="form-control", value= values ? values.phone : "")
+      label(for="phone") Phone
+      input(id="phone",type="number", name="phone", class="form-control", value= values ? values.phone : "")
+    .form-group
+      label(for="avatar") Avatar
+      input.form-control-file(type="file" name="avatar")
     button(class="btn btn-primary mt-3", type="submit") Create

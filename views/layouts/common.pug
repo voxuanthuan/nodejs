@@ -1,19 +1,25 @@
 html
   head
     link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
-    link(rel="stylesheet", href="../../styles/style")
   body
-    nav.navbar.navbar-expand-lg.navbar-light.bg-light
-      a.navbar-brand(href='#') CoderX
-      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
-        span.navbar-toggler-icon
-      #navbarNav.collapse.navbar-collapse
-        ul.navbar-nav
-          li.nav-item
-            a.nav-link(href='/') Home
-          li.nav-item
-            a.nav-link(href='/users') User
-      if user
-        p= user.name
-    .container.pt-5
-      block content
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    a.navbar-brand(href='#') CoderX
+    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarNav.collapse.navbar-collapse
+      ul.navbar-nav
+        li.nav-item
+          a.nav-link(href='/') Home
+        li.nav-item
+          a.nav-link(href='/users') User
+        li.nav-item
+          a.nav-link(href='/products') Products
+        li.nav-item
+          a.nav-link(href='#') Card&nbsp;
+            .badge.badge-pill.badge-info.h-100= count
+           
+            
+    if user
+      p= user.name
+  .container.pt-5
+    block content

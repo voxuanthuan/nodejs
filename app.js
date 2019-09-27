@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express');
 const app = express();
+var multer = require('multer')
 var bodyParser = require('body-parser')
 const shortid = require('shortid')
 var cookieParser = require('cookie-parser')
@@ -9,11 +10,16 @@ const authRoute = require('./routers/auth.route');
 const productRoute = require('./routers/product.route');
 var db = require('./db');
 const authMiddleware = require('./middlewares/auth.middleware');
-
+const sessionMiddleware = require('./middlewares/session.middleware');
+var upload = multer({ dest: './public/uploads' });
+const cartRoute = require('./routers/cart.route');
+const badgeMiddleware = require('./middlewares/badgeCart.middleware');
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'));
 app.use(cookieParser(process.env.SESSION_SECRET));
+app.use(sessionMiddleware);
+
 
 app.set('view engine', 'pug');
 
@@ -26,10 +32,10 @@ app.get('/', (req, res) => {
 app.get('/styles/custom', (req, res) => {
   res.send('abc');
 })
-
-app.use('/users', authMiddleware.requireAuth, userRoute);
+app.use('/users', upload.single('avatar'), authMiddleware.requireAuth, userRoute);
 app.use('/auth', authRoute);
-app.use('/products', productRoute);
+app.use('/products', badgeMiddleware, productRoute);
+app.use('/cart', cartRoute);
 
 app.listen(3000, () => {
   console.log(`App listening on port 3000`);
